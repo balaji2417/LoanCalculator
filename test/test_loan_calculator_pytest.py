@@ -1,5 +1,5 @@
 import pytest
-from src import main as loan_calculator
+from test import main as loan_calculator
 
 def test_calculate_loan_basic():
     """Test basic loan calculation"""
