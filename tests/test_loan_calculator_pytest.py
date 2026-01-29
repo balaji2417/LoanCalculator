@@ -5,8 +5,8 @@ def test_calculate_loan_basic():
     """Test basic loan calculation"""
     monthly, interest, total = loan_calculator.calculate_loan(10000, 5, 1)
     assert round(monthly, 2) == 856.07
-    assert round(total, 2) == 10272.89
-    assert round(interest, 2) == 272.89
+    assert round(total, 2) == 10272.90
+    assert round(interest, 2) == 272.90
 
 def test_calculate_loan_zero_interest():
     """Test loan with 0% interest rate"""
@@ -26,13 +26,13 @@ def test_calculate_loan_short_term():
     """Test short term loan (1 year)"""
     monthly, interest, total = loan_calculator.calculate_loan(5000, 10, 1)
     assert round(monthly, 2) == 439.58
-    assert round(interest, 2) == 274.92
+    assert round(interest, 2) == 274.95
 
 def test_calculate_loan_high_interest():
     """Test high interest rate loan"""
     monthly, interest, total = loan_calculator.calculate_loan(1000, 24, 1)
     assert round(monthly, 2) == 94.56
-    assert interest > 100  # Interest should be significant
+    assert interest > 100
 
 def test_calculate_loan_long_term():
     """Test long term loan (15 years)"""
@@ -53,8 +53,8 @@ def test_monthly_payment_positive():
 
 @pytest.mark.parametrize("principal,rate,years,expected_monthly", [
     (10000, 5, 1, 856.07),
-    (20000, 6, 2, 886.55),
-    (50000, 4.5, 5, 931.51),
+    (20000, 6, 2, 886.41),
+    (50000, 4.5, 5, 932.15),
 ])
 def test_calculate_loan_parametrized(principal, rate, years, expected_monthly):
     """Parametrized test for various loan scenarios"""
